@@ -1,0 +1,399 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+	--orange: #ff5100;
+}
+
+
+.nav-bar {
+	height: 80px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	border-bottom: 1px solid #ddd;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-actions {
+	display: flex;
+	gap: 80px;
+}
+
+.actions {
+	display: flex;
+	gap: 10px;
+}
+
+.search-box {
+	width: 300px;
+	padding: 10px 20px;
+	border-radius: 20px;
+	border: none;
+	box-shadow: 0px 0px 3px gray;
+}
+
+.search-box:focus {
+	box-shadow: 0px 0px 8px gray;
+	outline: none;
+}
+
+.login-btn, .register-btn {
+	padding: 10px 20px;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.login-btn {
+	border: 2px solid var(--orange);
+	background-color: white;
+}
+
+.register-btn {
+	border: none;
+	background-color: var(--orange);
+	color: white;
+	font-weight: 600;
+}
+
+.login-btn:hover, .register-btn:hover {
+	box-shadow: 0px 0px 5px var(--orange);
+}
+.register-btn:hover{
+	color: white;	
+}
+
+img[alt="login-icon"] {
+	height: 15px;
+	width: 15px;
+	margin-right: 8px;
+	margin-bottom: -2px;
+}
+
+img[alt="register-icon"] {
+	height: 20px;
+	width: 20px;
+	margin-right: 8px;
+	margin-bottom: -5px;
+}
+
+.home-page {
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+	background-color: #000; /* Prevents white flash on load */
+}
+
+.slideshow {
+	position: absolute;
+	inset: 0;
+}
+
+.slide {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0;
+	animation: crossFade 10s infinite;
+}
+
+.slide:nth-child(1) {
+	animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+	animation-delay: -5s;
+}
+
+@keyframes crossFade { 
+	0%, 45% {
+	opacity: 1;
+}
+
+55%,95%{
+	opacity : 0;
+}
+100%{
+	opacity : 1;
+}
+}
+
+/* --- Dots / Indicators --- */
+.dots {
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 12px;
+	z-index: 5;
+}
+
+.dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.4);
+	animation: dotFade 10s infinite;
+}
+
+.dot:nth-child(1) {
+	animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+	animation-delay: -5s;
+}
+
+@keyframes dotFade { 
+	0%, 45% {
+	background-color: white;
+	transform: scale(1.2);
+	}
+
+	55%, 100%{
+		background-color: rgba(255,255,255,0.4);
+		transform : scale(1);
+	}
+}
+
+/* --- Main Content --- */
+.main-content {
+	min-height: 400px;
+	padding: 40px;
+}
+
+.main-content {
+	margin-top: 20px;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.main-content-inside {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	gap: 50px;
+	flex-wrap: wrap;
+}
+
+.food-items {
+	height: 250px;
+	width: 300px;
+	border-radius: 10px;
+	background-color: rgb(255, 255, 255);
+	transition: transfrom 0.5ms ease;
+}
+
+.food-items:hover {
+	transform: scale(1.005);
+	box-shadow: 0px 0px 15px rgb(165, 165, 165);
+	cursor: pointer;
+}
+
+.restaurents-images {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	width: 100%;
+	height: 80%;
+}
+
+.res-details1, .res-details2 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 0px 15px;
+}
+
+.res-name {
+	color: #000;
+	font-size: 15px;
+}
+
+.res-desc {
+	color: gray;
+	font-size: small;
+}
+
+.res-time, .res-rating {
+	font-size: smaller;
+}
+
+.res-rating {
+	background-color: green;
+	margin-bottom: 2px;
+	padding: 1px 5px;
+	color: white;
+	border-radius: 5px;
+}
+
+.res-name, .res-desc {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.res-time {
+	min-width: 50px;
+	text-align: right;
+}
+
+.footer {
+	background-color: #F0F0F5;
+	padding: 60px 0;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+	width: 85%;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer-brand img {
+	height: 50px;
+	width: auto;
+	margin-bottom: 10px;
+}
+
+.footer-brand p {
+	color: gray;
+	font-size: 14px;
+}
+
+.footer-details {
+	display: flex;
+	gap: 100px;
+}
+
+.footer-details ul {
+	list-style: none;
+}
+
+.footer-details li {
+	margin-top: 15px;
+	color: gray;
+	font-size: 14px;
+}
+
+.footer-details .header {
+	color: black;
+	font-size: 16px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+a {
+	text-decoration: none;
+	color: gray;
+}
+
+a:hover {
+	color: black;
+}
+
+.social-links {
+	display: flex;
+	gap: 15px;
+	margin-top: 15px;
+}
+
+.social-links img {
+	height: 22px;
+	width: 22px;
+	cursor: pointer;
+	transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+	transform: scale(1.1);
+}
+
+
+.cart-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	text-decoration: none;
+	border: 1px solid;
+	padding: 5px 10px;
+	color: black;
+	border-radius: 5px;
+	font-weight: 600;
+}
+
+.cart-icon:hover {
+	color: #FE3102;
+	box-shadow: 0px 0px 10px #FE3102;
+}
+img[alt="cart-logo-img"] {
+	width: 25px;
+	height: 25px;
+}
+
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	backdrop-filter: blur(8px);
+}
+
+.profile-box {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
+.profile-menu {
+	padding : 15px 10px;
+    position: absolute;
+    top: 110%;
+    left: 50px;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0 0px 5px rgba(0,0,0,1.1);
+	border-top : 2px solid var(--orange);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    display: flex;  
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.profile-menu a {
+	font-weight: 600;
+	font-size: 16px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.profile-menu a:hover {
+    color: var(--orange);
+}
+.profile-box:hover .profile-menu {
+	
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
